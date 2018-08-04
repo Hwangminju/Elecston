@@ -1,4 +1,4 @@
-package com.example.mjhwa.elecston;
+package com.example.mjhwa.elecston.models;
 
 import android.content.Context;
 import android.graphics.Canvas;

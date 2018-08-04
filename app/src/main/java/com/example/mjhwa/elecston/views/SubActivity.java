@@ -1,9 +1,13 @@
-package com.example.mjhwa.elecston;
+package com.example.mjhwa.elecston.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.mjhwa.elecston.CircleAngleAnimation;
+import com.example.mjhwa.elecston.R;
+import com.example.mjhwa.elecston.models.Circle;
+
+public class SubActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

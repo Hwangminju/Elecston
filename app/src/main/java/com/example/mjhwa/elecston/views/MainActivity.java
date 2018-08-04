@@ -1,4 +1,4 @@
-package com.example.mjhwa.elecston;
+package com.example.mjhwa.elecston.views;
 
 import android.graphics.drawable.ClipDrawable;
 import android.os.Handler;
@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class Main2Activity extends AppCompatActivity {
+import com.example.mjhwa.elecston.R;
+
+public class MainActivity extends AppCompatActivity {
 
     private EditText etPercent;
     private ClipDrawable mImageDrawable;
@@ -59,7 +61,7 @@ public class Main2Activity extends AppCompatActivity {
             mUpHandler.postDelayed(animateUpImage, DELAY);
         } else {
             mUpHandler.removeCallbacks(animateUpImage);
-            Main2Activity.this.fromLevel = toLevel;
+            MainActivity.this.fromLevel = toLevel;
         }
     }
 
@@ -70,7 +72,7 @@ public class Main2Activity extends AppCompatActivity {
             mDownHandler.postDelayed(animateDownImage, DELAY);
         } else {
             mDownHandler.removeCallbacks(animateDownImage);
-            Main2Activity.this.fromLevel = toLevel;
+            MainActivity.this.fromLevel = toLevel;
         }
     }
 
@@ -84,13 +86,13 @@ public class Main2Activity extends AppCompatActivity {
         if (toLevel > fromLevel) {
             // cancel previous process first
             mDownHandler.removeCallbacks(animateDownImage);
-            Main2Activity.this.fromLevel = toLevel;
+            MainActivity.this.fromLevel = toLevel;
 
             mUpHandler.post(animateUpImage);
         } else {
             // cancel previous process first
             mUpHandler.removeCallbacks(animateUpImage);
-            Main2Activity.this.fromLevel = toLevel;
+            MainActivity.this.fromLevel = toLevel;
 
             mDownHandler.post(animateDownImage);
         }
