@@ -3,8 +3,6 @@ package com.example.mjhwa.elecston;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-import com.example.mjhwa.elecston.models.Circle;
-
 public class CircleAngleAnimation extends Animation {
     private Circle circle;
 
