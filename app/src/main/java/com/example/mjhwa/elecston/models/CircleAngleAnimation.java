@@ -1,4 +1,4 @@
-package com.example.mjhwa.elecston;
+package com.example.mjhwa.elecston.models;
 
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
