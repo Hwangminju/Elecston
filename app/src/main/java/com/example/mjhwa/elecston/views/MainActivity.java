@@ -1,12 +1,15 @@
 package com.example.mjhwa.elecston.views;
 
+import android.graphics.Typeface;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.mjhwa.elecston.R;
 
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    TextView tvUser;
+
     private Handler mDownHandler = new Handler();
     private Runnable animateDownImage = new Runnable() {
 
@@ -42,12 +47,23 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        imageView = (ImageView) findViewById(R.id.elec_image);
+        imageView.setImageResource(R.drawable.powerpoles);
+
         etPercent = (EditText) findViewById(R.id.etPercent);
+        tvUser = (TextView) findViewById(R.id.tvUser);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "NanumGothicCoding-Regular.ttf");
+        tvUser.setTypeface(typeface);
+
+        String user = getIntent().getStringExtra("user");
+        tvUser.setText(user);
 
         ImageView img = (ImageView) findViewById(R.id.imageView1);
         mImageDrawable = (ClipDrawable) img.getDrawable();
