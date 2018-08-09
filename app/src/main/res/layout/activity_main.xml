@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
@@ -20,10 +20,6 @@
         android:background="#e7e0e0"
         android:layout_marginBottom="10dp"/>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/elec_image"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -31,28 +27,74 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:background="@drawable/shape_line"
+            android:orientation="vertical"
             android:padding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:id="@+id/elec_image"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="5dp"
+                android:background="@color/border_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/etPercent"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:inputType="number"
-                    android:maxLength="3" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ok"
-                    android:onClick="onClickOk" />
+                    <ImageButton
+                        android:id="@+id/btPrev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/more_rounded"
+                        android:onClick="onClickPrev"
+                        android:padding="5dp"
+                        android:src="@drawable/leftplay" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YYYY-MM-DD"
+                            android:gravity="center" />
+
+                        <Button
+                            android:id="@+id/btToday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onClickToday"
+                            android:text="CLICK" />
+
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/btNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/more_rounded"
+                        android:onClick="onClickNext"
+                        android:padding="5dp"
+                        android:src="@drawable/rightplay" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -61,19 +103,20 @@
                 android:layout_height="wrap_content">
 
                 <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:src="@drawable/lightning_empty" />
 
                     <ImageView
                         android:id="@+id/imageView1"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:src="@drawable/clip_source" />
 
                 </FrameLayout>
@@ -81,26 +124,69 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tvPersent1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="고객님의 누진세 단계"
-                        android:textSize="17dp"/>
+                        android:textSize="17dp" />
 
                     <TextView
+                        android:id="@+id/tvPersent2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tvPersent2"
+                        android:fontFamily="sans-serif"
                         android:text="1단계"
-                        android:textSize="27dp"
-                        android:fontFamily="sans-serif"/>
+                        android:textSize="27dp" />
                 </LinearLayout>
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="5dp"
+                android:background="@color/border_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp">
+
+                    <com.example.mjhwa.elecston.models.CustomGauge
+                        android:id="@+id/gauge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="-80dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        app:gaugeDividerColor="@color/md_yellow_500"
+                        app:gaugeDividerDrawFirst="false"
+                        app:gaugeDividerDrawLast="true"
+                        app:gaugeDividerSize="1"
+                        app:gaugeDividerStep="10"
+                        app:gaugeEndValue="100"
+                        app:gaugePointEndColor="@color/md_green_500"
+                        app:gaugePointStartColor="@color/md_red_500"
+                        app:gaugeStartAngle="180"
+                        app:gaugeStartValue="0"
+                        app:gaugeStrokeCap="BUTT"
+                        app:gaugeStrokeColor="@color/md_grey_400"
+                        app:gaugeStrokeWidth="20dp"
+                        app:gaugeSweepAngle="180" />
+
+                </FrameLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
