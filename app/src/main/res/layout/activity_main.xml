@@ -18,7 +18,8 @@
         android:hint="USER"
         android:id="@+id/tvUser"
         android:background="#e7e0e0"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -152,11 +153,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <FrameLayout
                     android:layout_width="120dp"
-                    android:layout_height="120dp">
+                    android:layout_height="120dp"
+                    android:layout_marginTop="-30dp">
 
                     <com.example.mjhwa.elecston.models.CustomGauge
                         android:id="@+id/gauge"
@@ -186,6 +189,72 @@
                         app:gaugeSweepAngle="180" />
 
                 </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="누진세 1단계 소진까지"
+                        android:textSize="17dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="28.1KW 남았습니다"
+                        android:textSize="23dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="5dp"
+                android:background="@color/border_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/currency"/>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvPersent3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="현재 상한가 : 누진세"
+                        android:textSize="23dp" />
+
+                    <TextView
+                        android:id="@+id/tvPersent4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="현재 하한가 : 누진세"
+                        android:textSize="23dp" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
