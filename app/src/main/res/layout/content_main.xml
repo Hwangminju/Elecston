@@ -15,9 +15,88 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         android:src="@drawable/bulb"/>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:drawableStart="@drawable/waiter"
+            android:text="@string/button_ai"
+            android:textColor="@color/md_white_1000"
+            android:textSize="25dp"
+            android:background="@drawable/rounded_background_nostroke"
+            android:id="@+id/btn_ai"/>
+
+        <Button
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:drawableStart="@drawable/sharing"
+            android:text="@string/button_tran"
+            android:textColor="@color/md_white_1000"
+            android:textSize="25dp"
+            android:background="@drawable/rounded_background_nostroke"
+            android:id="@+id/btn_tran"/>
+
+        <Button
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:drawableStart="@drawable/sun"
+            android:text="@string/button_sun"
+            android:textColor="@color/md_white_1000"
+            android:textSize="25dp"
+            android:background="@drawable/rounded_background_nostroke"
+            android:id="@+id/btn_sun"/>
+
+        <Button
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:drawableStart="@drawable/checklist"
+            android:text="@string/button_check"
+            android:textColor="@color/md_white_1000"
+            android:textSize="25dp"
+            android:background="@drawable/rounded_background_nostroke"
+            android:id="@+id/btn_check"/>
+
+        <Button
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:drawableStart="@drawable/bell"
+            android:text="@string/button_trust"
+            android:textColor="@color/md_white_1000"
+            android:textSize="25dp"
+            android:background="@drawable/rounded_background_nostroke"
+            android:id="@+id/btn_trust"/>
+
+        <Button
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:drawableStart="@drawable/asking"
+            android:text="@string/button_faq"
+            android:textColor="@color/md_white_1000"
+            android:textSize="25dp"
+            android:background="@drawable/rounded_background_nostroke"
+            android:id="@+id/btn_faq"/>
+
+    </LinearLayout>
+
+
+
 </LinearLayout>

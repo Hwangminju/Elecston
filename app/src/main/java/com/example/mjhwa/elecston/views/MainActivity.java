@@ -107,6 +107,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_trust:
                 break;
 
+            case R.id.nav_check:
+                break;
+
             case R.id.nav_faq:
                 break;
 

@@ -21,6 +21,10 @@
             android:icon="@drawable/sun"
             android:title="태양광 거래소" />
         <item
+            android:id="@+id/nav_check"
+            android:icon="@drawable/checklist"
+            android:title="나만의 체크리스트" />
+        <item
             android:id="@+id/nav_trust"
             android:icon="@drawable/bell"
             android:title="KEPCO Trust 약관" />

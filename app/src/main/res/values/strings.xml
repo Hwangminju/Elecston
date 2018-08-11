@@ -41,4 +41,11 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <string name="button_ai">AI 집사의 추천</string>
+    <string name="button_tran">누진세 거래소</string>
+    <string name="button_sun">태양광 거래소</string>
+    <string name="button_check">나만의 체크리스트</string>
+    <string name="button_trust">KEPCO Trust 약관</string>
+    <string name="button_faq">FAQ</string>
 </resources>
