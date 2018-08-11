@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         btnSkip.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -201,7 +201,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
             String user = email;
 
-            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra("user", user);
             startActivity(intent);
         }

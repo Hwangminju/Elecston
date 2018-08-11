@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/house"
+            android:title="HOME" />
+        <item
+            android:id="@+id/nav_ai"
+            android:icon="@drawable/waiter"
+            android:title="AI 집사의 추천" />
+        <item
+            android:id="@+id/nav_tran"
+            android:icon="@drawable/sharing"
+            android:title="누진세 거래소" />
+        <item
+            android:id="@+id/nav_sun"
+            android:icon="@drawable/sun"
+            android:title="태양광 거래소" />
+        <item
+            android:id="@+id/nav_trust"
+            android:icon="@drawable/bell"
+            android:title="KEPCO Trust 약관" />
+        <item
+            android:id="@+id/nav_faq"
+            android:icon="@drawable/asking"
+            android:title="FAQ" />
+
+    </group>
+
+    <item android:title="Logo">
+        <menu>
+            <item
+                android:id="@+id/logo"
+                android:icon="@drawable/kepco"
+                android:title="Share" />
+        </menu>
+    </item>
+
+</menu>
