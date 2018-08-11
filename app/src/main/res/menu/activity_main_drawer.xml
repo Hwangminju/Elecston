@@ -31,13 +31,5 @@
 
     </group>
 
-    <item android:title="Logo">
-        <menu>
-            <item
-                android:id="@+id/logo"
-                android:icon="@drawable/kepco"
-                android:title="Share" />
-        </menu>
-    </item>
-
 </menu>
+
