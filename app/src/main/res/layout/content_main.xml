@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,15 +8,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".views.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:orientation="vertical"
-
     android:background="@color/colorPrimaryDark">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/bulb"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,8 +25,9 @@
             android:text="@string/button_ai"
             android:textColor="@color/md_white_1000"
             android:textSize="25dp"
-            android:background="@drawable/rounded_background_nostroke"
-            android:id="@+id/btn_ai"/>
+            android:background="@drawable/selector_click"
+            android:clickable="true"
+            android:id="@+id/btn_ai" />
 
         <Button
             android:paddingHorizontal="@dimen/activity_horizontal_margin"
@@ -44,7 +38,7 @@
             android:text="@string/button_tran"
             android:textColor="@color/md_white_1000"
             android:textSize="25dp"
-            android:background="@drawable/rounded_background_nostroke"
+            android:background="@drawable/selector_click"
             android:id="@+id/btn_tran"/>
 
         <Button
@@ -56,7 +50,7 @@
             android:text="@string/button_sun"
             android:textColor="@color/md_white_1000"
             android:textSize="25dp"
-            android:background="@drawable/rounded_background_nostroke"
+            android:background="@drawable/selector_click"
             android:id="@+id/btn_sun"/>
 
         <Button
@@ -68,7 +62,7 @@
             android:text="@string/button_check"
             android:textColor="@color/md_white_1000"
             android:textSize="25dp"
-            android:background="@drawable/rounded_background_nostroke"
+            android:background="@drawable/selector_click"
             android:id="@+id/btn_check"/>
 
         <Button
@@ -80,7 +74,7 @@
             android:text="@string/button_trust"
             android:textColor="@color/md_white_1000"
             android:textSize="25dp"
-            android:background="@drawable/rounded_background_nostroke"
+            android:background="@drawable/selector_click"
             android:id="@+id/btn_trust"/>
 
         <Button
@@ -92,11 +86,9 @@
             android:text="@string/button_faq"
             android:textColor="@color/md_white_1000"
             android:textSize="25dp"
-            android:background="@drawable/rounded_background_nostroke"
+            android:background="@drawable/selector_click"
             android:id="@+id/btn_faq"/>
 
     </LinearLayout>
 
-
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

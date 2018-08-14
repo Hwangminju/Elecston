@@ -15,6 +15,7 @@
             android:text="당신의 전력을 더 안전하게"
             android:gravity="center"
             android:layout_marginTop="100dp"
+            android:fontFamily="casual"
             android:textSize="30dp" />
 
         <View
@@ -26,6 +27,16 @@
             android:layout_height="200dp"
             android:background="@drawable/handshake"
             android:adjustViewBounds="true"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <ImageView
+            android:layout_width="260dp"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/kepco" />
         
     </LinearLayout>
 

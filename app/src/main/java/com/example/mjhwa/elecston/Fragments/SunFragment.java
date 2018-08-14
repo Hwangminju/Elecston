@@ -13,12 +13,12 @@ import com.example.mjhwa.elecston.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FourthFragment.OnFragmentInteractionListener} interface
+ * {@link SunFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FourthFragment#newInstance} factory method to
+ * Use the {@link SunFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FourthFragment extends Fragment {
+public class SunFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +30,7 @@ public class FourthFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public FourthFragment() {
+    public SunFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +40,11 @@ public class FourthFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FourthFragment.
+     * @return A new instance of fragment SunFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FourthFragment newInstance(String param1, String param2) {
-        FourthFragment fragment = new FourthFragment();
+    public static SunFragment newInstance(String param1, String param2) {
+        SunFragment fragment = new SunFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,11 +64,8 @@ public class FourthFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fourth, container, false);
+        return inflater.inflate(R.layout.fragment_sun, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

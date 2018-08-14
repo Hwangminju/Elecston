@@ -1,28 +1,50 @@
-package com.example.mjhwa.elecston.views;
+package com.example.mjhwa.elecston.TabFragments;
 
-import android.graphics.Typeface;
+import android.content.Context;
 import android.graphics.drawable.ClipDrawable;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.text.Spannable;
 import android.text.style.BackgroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mjhwa.elecston.Adapters.PagerAdapter;
+import com.example.mjhwa.elecston.Fragments.TranFragment;
 import com.example.mjhwa.elecston.R;
+import com.example.mjhwa.elecston.models.CustomGauge;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import com.example.mjhwa.elecston.models.CustomGauge;
 
-public class TranActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link Tab1Fragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link Tab1Fragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class Tab1Fragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    ImageButton btPrev;
+    Button btToday;
+    ImageButton btNext;
 
     private EditText etPercent;
     private ClipDrawable mImageDrawable;
@@ -63,48 +85,102 @@ public class TranActivity extends AppCompatActivity {
         }
     };
 
-    ImageView imageView;
-    ImageButton btPrev;
-    Button btToday;
-    ImageButton btNext;
-
     TextView tvDate;
 
     private String dTime;
 
+    private OnFragmentInteractionListener mListener;
+
+    public Tab1Fragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @return A new instance of fragment Tab1Fragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static Tab1Fragment newInstance() {
+        Tab1Fragment fragment = new Tab1Fragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tran);
 
-        imageView = (ImageView) findViewById(R.id.elec_image);
-        imageView.setImageResource(R.drawable.powerpoles);
+    }
 
-        tvUser = (TextView) findViewById(R.id.tvUser);
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "NanumGothicCoding-Regular.ttf");
-        tvUser.setTypeface(typeface);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        String user = getIntent().getStringExtra("user");
-        tvUser.setText(user);
+        View v = inflater.inflate(R.layout.fragment_tab1, container, false);
 
-        btPrev = (ImageButton) findViewById(R.id.btPrev);
-        btToday = (Button) findViewById(R.id.btToday);
-        btNext = (ImageButton) findViewById(R.id.btNext);
+        btPrev = (ImageButton)v.findViewById(R.id.btPrev);
+        btToday = (Button)v.findViewById(R.id.btToday);
+        btNext = (ImageButton)v.findViewById(R.id.btNext);
 
         btPrev.setEnabled(false);
         btNext.setEnabled(false);
 
-        tvDate = (TextView) findViewById(R.id.tvDate);
+        tvDate = (TextView)v.findViewById(R.id.tvDate);
 
-        gauge = findViewById(R.id.gauge);
+        gauge = getActivity().findViewById(R.id.gauge);
 
         SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
         Date currentTime = new Date( );
         dTime = formatter.format ( currentTime );
 
-        ImageView img = (ImageView) findViewById(R.id.imageView1);
+        ImageView img = (ImageView)v.findViewById(R.id.imageView1);
         mImageDrawable = (ClipDrawable) img.getDrawable();
         mImageDrawable.setLevel(0);
+
+        // Inflate the layout for this fragment
+        return v;
+    }
+
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 
     private void doTheUpAnimation(int fromLevel, int toLevel) {
@@ -114,7 +190,7 @@ public class TranActivity extends AppCompatActivity {
             mUpHandler.postDelayed(animateUpImage, DELAY);
         } else {
             mUpHandler.removeCallbacks(animateUpImage);
-            TranActivity.this.fromLevel = toLevel;
+            Tab1Fragment.this.fromLevel = toLevel;
         }
     }
 
@@ -125,7 +201,7 @@ public class TranActivity extends AppCompatActivity {
             mDownHandler.postDelayed(animateDownImage, DELAY);
         } else {
             mDownHandler.removeCallbacks(animateDownImage);
-            TranActivity.this.fromLevel = toLevel;
+            Tab1Fragment.this.fromLevel = toLevel;
         }
     }
 
@@ -149,13 +225,13 @@ public class TranActivity extends AppCompatActivity {
         if (toLevel > fromLevel) {
             // cancel previous process first
             mDownHandler.removeCallbacks(animateDownImage);
-            TranActivity.this.fromLevel = toLevel;
+            Tab1Fragment.this.fromLevel = toLevel;
 
             mUpHandler.post(animateUpImage);
         } else {
             // cancel previous process first
             mUpHandler.removeCallbacks(animateUpImage);
-            TranActivity.this.fromLevel = toLevel;
+            Tab1Fragment.this.fromLevel = toLevel;
 
             mDownHandler.post(animateDownImage);
         }
@@ -164,7 +240,7 @@ public class TranActivity extends AppCompatActivity {
             public void run() {
                 final int i = 35;
                 try {
-                    runOnUiThread(new Runnable() {
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             gauge.setValue(i);
@@ -196,13 +272,13 @@ public class TranActivity extends AppCompatActivity {
         if (toLevel > fromLevel) {
             // cancel previous process first
             mDownHandler.removeCallbacks(animateDownImage);
-            TranActivity.this.fromLevel = toLevel;
+            Tab1Fragment.this.fromLevel = toLevel;
 
             mUpHandler.post(animateUpImage);
         } else {
             // cancel previous process first
             mUpHandler.removeCallbacks(animateUpImage);
-            TranActivity.this.fromLevel = toLevel;
+            Tab1Fragment.this.fromLevel = toLevel;
 
             mDownHandler.post(animateDownImage);
         }
@@ -211,7 +287,7 @@ public class TranActivity extends AppCompatActivity {
             public void run() {
                 final int i = iLevel - Integer.parseInt(String.valueOf(Math.round(Math.random() * 3)));
                 try {
-                    runOnUiThread(new Runnable() {
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             gauge.setValue(i);
@@ -251,13 +327,13 @@ public class TranActivity extends AppCompatActivity {
         if (toLevel > fromLevel) {
             // cancel previous process first
             mDownHandler.removeCallbacks(animateDownImage);
-            TranActivity.this.fromLevel = toLevel;
+            Tab1Fragment.this.fromLevel = toLevel;
 
             mUpHandler.post(animateUpImage);
         } else {
             // cancel previous process first
             mUpHandler.removeCallbacks(animateUpImage);
-            TranActivity.this.fromLevel = toLevel;
+            Tab1Fragment.this.fromLevel = toLevel;
 
             mDownHandler.post(animateDownImage);
         }
@@ -266,7 +342,7 @@ public class TranActivity extends AppCompatActivity {
             public void run() {
                 final int i = iLevel + Integer.parseInt(String.valueOf(Math.round(Math.random() * 3)));
                 try {
-                    runOnUiThread(new Runnable() {
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             gauge.setValue(i);
@@ -291,12 +367,7 @@ public class TranActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-    }
-
-    @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
     }
 }

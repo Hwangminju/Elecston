@@ -13,12 +13,12 @@ import com.example.mjhwa.elecston.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SeventhFragment.OnFragmentInteractionListener} interface
+ * {@link TrustFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SeventhFragment#newInstance} factory method to
+ * Use the {@link TrustFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SeventhFragment extends Fragment {
+public class TrustFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +30,7 @@ public class SeventhFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SeventhFragment() {
+    public TrustFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +40,11 @@ public class SeventhFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SeventhFragment.
+     * @return A new instance of fragment TrustFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SeventhFragment newInstance(String param1, String param2) {
-        SeventhFragment fragment = new SeventhFragment();
+    public static TrustFragment newInstance(String param1, String param2) {
+        TrustFragment fragment = new TrustFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,7 +65,7 @@ public class SeventhFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_seventh, container, false);
+        return inflater.inflate(R.layout.fragment_trust, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

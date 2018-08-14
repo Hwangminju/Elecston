@@ -11,13 +11,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 
-import com.example.mjhwa.elecston.Fragments.FifthFragment;
-import com.example.mjhwa.elecston.Fragments.HomeFragment;
-import com.example.mjhwa.elecston.Fragments.FourthFragment;
-import com.example.mjhwa.elecston.Fragments.SecondFragment;
-import com.example.mjhwa.elecston.Fragments.SeventhFragment;
-import com.example.mjhwa.elecston.Fragments.SixthFragment;
-import com.example.mjhwa.elecston.Fragments.ThirdFragment;
 import com.example.mjhwa.elecston.R;
 
 public class MenuActivity extends AppCompatActivity {
@@ -93,29 +86,7 @@ public class MenuActivity extends AppCompatActivity {
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
-        Class fragmentClass;
-        switch(menuItem.getItemId()) {
-            case R.id.nav_first_fragment:
-                fragmentClass = HomeFragment.class;
-                break;
-            case R.id.nav_second_fragment:
-                fragmentClass = SecondFragment.class;
-                break;
-            case R.id.nav_third_fragment:
-                fragmentClass = ThirdFragment.class;
-                break;
-            case R.id.nav_fourth_fragment:
-                fragmentClass = FourthFragment.class;
-                break;
-            case R.id.nav_fifth_fragment:
-                fragmentClass = FifthFragment.class;
-                break;
-            case R.id.nav_sixth_fragment:
-                fragmentClass = SixthFragment.class;
-                break;
-            default:
-                fragmentClass = SeventhFragment.class;
-        }
+        Class fragmentClass = null;
 
         try {
             fragment = (Fragment) fragmentClass.newInstance();

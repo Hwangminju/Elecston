@@ -14,8 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.SubActivity" />
-        <activity android:name=".views.TranActivity" />
         <activity android:name=".views.LoginActivity" />
         <activity android:name=".views.StartActivity">
             <intent-filter>
@@ -24,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.DataActivity" />
         <activity android:name=".views.MenuActivity" />
         <activity
             android:name=".views.MainActivity"

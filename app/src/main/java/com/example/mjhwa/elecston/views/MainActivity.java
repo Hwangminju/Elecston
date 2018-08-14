@@ -1,6 +1,9 @@
 package com.example.mjhwa.elecston.views;
 
+import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,13 +17,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
+import com.example.mjhwa.elecston.Fragments.AIFragment;
+import com.example.mjhwa.elecston.Fragments.CheckFragment;
+import com.example.mjhwa.elecston.Fragments.FAQFragment;
 import com.example.mjhwa.elecston.Fragments.HomeFragment;
+import com.example.mjhwa.elecston.Fragments.SunFragment;
 import com.example.mjhwa.elecston.Fragments.TranFragment;
+import com.example.mjhwa.elecston.Fragments.TrustFragment;
 import com.example.mjhwa.elecston.R;
+import com.example.mjhwa.elecston.TabFragments.Tab1Fragment;
+import com.example.mjhwa.elecston.TabFragments.Tab2Fragment;
+import com.example.mjhwa.elecston.TabFragments.Tab3Fragment;
+
+import javax.net.ssl.TrustManager;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements
+        AIFragment.OnFragmentInteractionListener,
+        TranFragment.OnFragmentInteractionListener,
+        SunFragment.OnFragmentInteractionListener,
+        CheckFragment.OnFragmentInteractionListener,
+        TrustFragment.OnFragmentInteractionListener,
+        FAQFragment.OnFragmentInteractionListener,
+        Tab1Fragment.OnFragmentInteractionListener,
+        Tab2Fragment.OnFragmentInteractionListener,
+        Tab3Fragment.OnFragmentInteractionListener,
+        NavigationView.OnNavigationItemSelectedListener {
+
+    Button btn_ai, btn_tran, btn_sun, btn_check, btn_trust, btn_faq;
+
+    @Override
+    public void onFragmentInteraction(Uri uri){
+        //you can leave it empty
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +75,67 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        findViewById(R.id.btn_ai).setOnClickListener(btnClickListener);
+        findViewById(R.id.btn_tran).setOnClickListener(btnClickListener);
+        findViewById(R.id.btn_sun).setOnClickListener(btnClickListener);
+        findViewById(R.id.btn_check).setOnClickListener(btnClickListener);
+        findViewById(R.id.btn_trust).setOnClickListener(btnClickListener);
+        findViewById(R.id.btn_faq).setOnClickListener(btnClickListener);
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    private Button.OnClickListener btnClickListener = new View.OnClickListener() {
+
+        Fragment fragment = null;
+        Class fragmentClass = null;
+
+        @SuppressWarnings("StatementWithEmptyBody")
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btn_ai:
+                    fragmentClass = AIFragment.class;
+                    break;
+
+                case R.id.btn_tran:
+                    fragmentClass = TranFragment.class;
+                    break;
+
+                case R.id.btn_sun:
+                    fragmentClass = SunFragment.class;
+                    break;
+
+                case R.id.btn_check:
+                    fragmentClass = CheckFragment.class;
+                    break;
+
+                case R.id.btn_trust:
+                    fragmentClass = TrustFragment.class;
+                    break;
+
+                case R.id.btn_faq:
+                    fragmentClass = FAQFragment.class;
+                    break;
+
+                default:
+                    fragmentClass = MainActivity.class;
+                    break;
+
+            }
+
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        }
+    };
 
     @Override
     public void onBackPressed() {
@@ -81,20 +169,22 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint("InflateParams")
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         Fragment fragment = null;
-        Class fragmentClass = null;
+        Class fragmentClass;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         switch (id) {
             case R.id.nav_home:
-                fragmentClass = HomeFragment.class;
+                fragmentClass = MainActivity.class;
                 break;
 
             case R.id.nav_ai:
+                fragmentClass = AIFragment.class;
                 break;
 
             case R.id.nav_tran:
@@ -102,19 +192,23 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_sun:
+                fragmentClass = SunFragment.class;
                 break;
 
             case R.id.nav_trust:
+                fragmentClass = TrustFragment.class;
                 break;
 
             case R.id.nav_check:
+                fragmentClass = CheckFragment.class;
                 break;
 
             case R.id.nav_faq:
+                fragmentClass = FAQFragment.class;
                 break;
 
             default:
-                fragmentClass = HomeFragment.class;
+                fragmentClass = MainActivity.class;
                 break;
 
         }
