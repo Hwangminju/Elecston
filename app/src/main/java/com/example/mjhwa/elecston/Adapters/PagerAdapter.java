@@ -41,7 +41,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return "현재 시세";
             case 1:
-                return "구매;";
+                return "구매";
             case 2:
                 return "나의 목록";
             default:

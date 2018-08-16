@@ -11,6 +11,12 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="android.support.design.widget.TabLayout" parent="android:Widget">
+        <item name="tabBackground">@drawable/tab_background</item>
+        <item name="tabIndicatorColor">#835383</item>
+        <item name="tabIndicatorHeight">2dp</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

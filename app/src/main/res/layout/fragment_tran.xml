@@ -23,6 +23,7 @@
             android:id="@+id/elec_image"/>
 
         <android.support.design.widget.TabLayout
+            app:tabBackground="@drawable/tab_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tabs"

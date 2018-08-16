@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mjhwa.elecston.R;
 
@@ -28,6 +29,8 @@ public class Tab2Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    TextView nu1, nu2, nu3, nu4, nu5, nu6, nu7;
+
     private OnFragmentInteractionListener mListener;
 
     public Tab2Fragment() {
@@ -38,8 +41,6 @@ public class Tab2Fragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment Tab2Fragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -63,7 +64,25 @@ public class Tab2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab2, container, false);
+        View v = inflater.inflate(R.layout.fragment_tab2, container, false);
+
+        nu1 = (TextView) v.findViewById(R.id.nu1);
+        nu2 = (TextView) v.findViewById(R.id.nu2);
+        nu3 = (TextView) v.findViewById(R.id.nu3);
+        nu4 = (TextView) v.findViewById(R.id.nu4);
+        nu5 = (TextView) v.findViewById(R.id.nu5);
+        nu6 = (TextView) v.findViewById(R.id.nu6);
+        nu7 = (TextView) v.findViewById(R.id.nu7);
+
+        nu1.setText(R.string.nu1);
+        nu2.setText(R.string.nu2);
+        nu3.setText(R.string.nu3);
+        nu4.setText(R.string.nu4);
+        nu5.setText(R.string.nu5);
+        nu6.setText(R.string.nu6);
+        nu7.setText(R.string.nu7);
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

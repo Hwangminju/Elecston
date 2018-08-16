@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mjhwa.elecston.Adapters.PagerAdapter;
 import com.example.mjhwa.elecston.Fragments.TranFragment;
@@ -62,6 +63,8 @@ public class Tab1Fragment extends Fragment {
     public static final int DELAY = 30;
 
     public final String text = "Text";
+
+    TextView tv1, tv2, tv4, tv5, tv6, tv7;
 
     private CustomGauge gauge;
 
@@ -120,6 +123,20 @@ public class Tab1Fragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_tab1, container, false);
+
+        tv1 = (TextView) v.findViewById(R.id.tv1);
+        tv2 = (TextView) v.findViewById(R.id.tv2);
+        tv4 = (TextView) v.findViewById(R.id.tv4);
+        tv5 = (TextView) v.findViewById(R.id.tv5);
+        tv6 = (TextView) v.findViewById(R.id.tv6);
+        tv7 = (TextView) v.findViewById(R.id.tv7);
+
+        tv1.setText(R.string.tv1);
+        tv2.setText(R.string.tv2);
+        tv4.setText(R.string.tv4);
+        tv5.setText(R.string.tv5);
+        tv6.setText(R.string.tv6);
+        tv7.setText(R.string.tv7);
 
         btPrev = (ImageButton)v.findViewById(R.id.btPrev);
         btToday = (Button)v.findViewById(R.id.btToday);
@@ -238,7 +255,7 @@ public class Tab1Fragment extends Fragment {
 
         new Thread() {
             public void run() {
-                final int i = 35;
+                final int i = 30;
                 try {
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -303,6 +320,12 @@ public class Tab1Fragment extends Fragment {
         }.start();
 
         mDate.setDate(mDate.getDate()-1);
+
+        if (mDate.getDate() == 1) {
+            btPrev.setEnabled(false);
+            btPrev.setVisibility(View.INVISIBLE);
+        }
+
         SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
         dTime = formatter.format ( mDate );
 
@@ -358,6 +381,12 @@ public class Tab1Fragment extends Fragment {
         }.start();
 
         mDate.setDate(mDate.getDate()+1);
+
+        if (mDate.compareTo(new Date()) == 0) {
+            btNext.setEnabled(false);
+            btNext.setVisibility(View.INVISIBLE);
+        }
+
         SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
         dTime = formatter.format ( mDate );
 

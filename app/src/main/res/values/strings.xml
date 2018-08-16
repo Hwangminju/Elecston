@@ -3,6 +3,23 @@
     <string name="title_activity_login">Sign in</string>
     <string name="title_activity_signup">Sign up</string>
 
+    <!-- tab1 프래그먼트 지정 -->
+    <string name="tv1"><font size="15">고객님은 현재</font>\n누진세 <font color="#ae3030" size="30">1단계 </font>입니다</string>
+    <string name="tv2">누진세 <font color="#ae3030" size="20">1단계 </font>소진 시까지\n<font color="#ae3030" size="30">28.5kW </font>남은 상태입니다</string>
+    <string name="tv4">오늘의 혜택\n10kWh 구매당\n<font color="#6e83ed" size="25">통신 3사 데이터 1GB 증정!</font></string>
+    <string name="tv5">현재 누진세 1단계 시세\n<font color="#764b94" size="30">167.94원/kWh</font></string>
+    <string name="tv6">현재 누진세 2단계 시세\n<font color="#764b94" size="30">319.43원/kWh</font></string>
+    <string name="tv7">현재 수수료: 20%\n(부가세 10% 포함)</string>
+
+    <!-- tab2 프래그먼트 지정 -->
+    <string name="nu1">누진세 1단계\n<font color="#6e83ed" size="30">가격: 150원/kWh</font></string>
+    <string name="nu2">누진세 2단계\n<font color="#6e83ed" size="30">가격: 320원/kWh</font></string>
+    <string name="nu3">누진세 2단계\n<font color="#6e83ed" size="30">가격: 318원/kWh</font></string>
+    <string name="nu4">누진세 1단계\n<font color="#6e83ed" size="30">가격: 177원/kWh</font></string>
+    <string name="nu5">누진세 1단계\n<font color="#6e83ed" size="30">가격: 175원/kWh</font></string>
+    <string name="nu6">누진세 2단계\n<font color="#6e83ed" size="30">가격: 319원/kWh</font></string>
+    <string name="nu7">누진세 2단계\n<font color="#6e83ed" size="30">가격: 168원/kWh</font></string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
