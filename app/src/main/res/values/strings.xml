@@ -6,10 +6,14 @@
     <!-- tab1 프래그먼트 지정 -->
     <string name="tv1"><font size="15">고객님은 현재</font>\n누진세 <font color="#ae3030" size="30">1단계 </font>입니다</string>
     <string name="tv2">누진세 <font color="#ae3030" size="20">1단계 </font>소진 시까지\n<font color="#ae3030" size="30">28.5kW </font>남은 상태입니다</string>
-    <string name="tv4">오늘의 혜택\n10kWh 구매당\n<font color="#6e83ed" size="25">통신 3사 데이터 1GB 증정!</font></string>
+    <string name="tv4">오늘의 혜택\n<font size="20">10kWh 구매당\n</font><font color="#6e83ed" size="25">통신 3사 데이터 1GB 증정!</font></string>
     <string name="tv5">현재 누진세 1단계 시세\n<font color="#764b94" size="30">167.94원/kWh</font></string>
     <string name="tv6">현재 누진세 2단계 시세\n<font color="#764b94" size="30">319.43원/kWh</font></string>
-    <string name="tv7">현재 수수료: 20%\n(부가세 10% 포함)</string>
+    <string name="tv7"><font size="25">현재 수수료: 20%\n(부가세 10% 포함)</font></string>
+
+    <string name="ai_1"><font size="30">남은 누진 전력이\n</font><font color="#ae3030" size="30">부족</font><font size="15">한 달입니다.</font></string>
+    <string name="ai_2"><font size="20">AI 집사는 고객님께:\n</font><font color="#e4ce27" size="25">태양광</font><font size="15">을 구매하기를 </font>
+        <font color="#6e83ed" size="25">추천</font><font size="15">합니다.</font></string>
 
     <!-- tab2 프래그먼트 지정 -->
     <string name="nu1">누진세 1단계\n<font color="#6e83ed" size="30">가격: 150원/kWh</font></string>

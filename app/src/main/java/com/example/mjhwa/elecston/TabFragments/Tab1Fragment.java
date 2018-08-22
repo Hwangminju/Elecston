@@ -1,6 +1,8 @@
 package com.example.mjhwa.elecston.TabFragments;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ClipDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import com.example.mjhwa.elecston.Adapters.PagerAdapter;
 import com.example.mjhwa.elecston.Fragments.TranFragment;
 import com.example.mjhwa.elecston.R;
 import com.example.mjhwa.elecston.models.CustomGauge;
+import com.example.mjhwa.elecston.views.ReportActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,6 +46,7 @@ public class Tab1Fragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    Button thisMonth;
     ImageButton btPrev;
     Button btToday;
     ImageButton btNext;
@@ -138,16 +142,17 @@ public class Tab1Fragment extends Fragment {
         tv6.setText(R.string.tv6);
         tv7.setText(R.string.tv7);
 
-        btPrev = (ImageButton)v.findViewById(R.id.btPrev);
+        thisMonth = (Button)v.findViewById(R.id.thisMonth);
+        /*btPrev = (ImageButton)v.findViewById(R.id.btPrev);
         btToday = (Button)v.findViewById(R.id.btToday);
         btNext = (ImageButton)v.findViewById(R.id.btNext);
 
         btPrev.setEnabled(false);
         btNext.setEnabled(false);
 
-        tvDate = (TextView)v.findViewById(R.id.tvDate);
+        tvDate = (TextView)v.findViewById(R.id.tvDate);*/
 
-        gauge = getActivity().findViewById(R.id.gauge);
+        gauge = v.findViewById(R.id.gauge);
 
         SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
         Date currentTime = new Date( );
@@ -157,20 +162,101 @@ public class Tab1Fragment extends Fragment {
         mImageDrawable = (ClipDrawable) img.getDrawable();
         mImageDrawable.setLevel(0);
 
+        int temp_level = (75 * MAX_LEVEL) / 100;
+
+        if (toLevel == temp_level || temp_level > MAX_LEVEL) {
+            return v;
+        }
+
+        toLevel = (temp_level <= MAX_LEVEL) ? temp_level : toLevel;
+
+        if (toLevel > fromLevel) {
+            // cancel previous process first
+            mDownHandler.removeCallbacks(animateDownImage);
+            Tab1Fragment.this.fromLevel = toLevel;
+
+            mUpHandler.post(animateUpImage);
+        } else {
+            // cancel previous process first
+            mUpHandler.removeCallbacks(animateUpImage);
+            Tab1Fragment.this.fromLevel = toLevel;
+
+            mDownHandler.post(animateDownImage);
+        }
+
+        new Thread() {
+            public void run() {
+                final int i = 30;
+                try {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            gauge.setValue(i);
+                            iLevel = i;
+                        }
+                    });
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }.start();
+
+        thisMonth.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getActivity(), ReportActivity.class);
+                getActivity().startActivity(intent);
+            }
+
+        });
+
+        /*btToday.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // write your code here
+                onClickToday(view);
+            }
+        });
+
+        btPrev.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // write your code here
+                onClickPrev(view);
+            }
+        });
+
+        btNext.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // write your code here
+                onClickNext(view);
+            }
+        });*/
+
+
         // Inflate the layout for this fragment
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+        // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
 
+    private Activity activity;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        if (context instanceof Activity) {
+            activity = (Activity) context;
+        }
+
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
@@ -257,7 +343,7 @@ public class Tab1Fragment extends Fragment {
             public void run() {
                 final int i = 30;
                 try {
-                    getActivity().runOnUiThread(new Runnable() {
+                    activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             gauge.setValue(i);
@@ -304,7 +390,7 @@ public class Tab1Fragment extends Fragment {
             public void run() {
                 final int i = iLevel - Integer.parseInt(String.valueOf(Math.round(Math.random() * 3)));
                 try {
-                    getActivity().runOnUiThread(new Runnable() {
+                    activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             gauge.setValue(i);
@@ -365,7 +451,7 @@ public class Tab1Fragment extends Fragment {
             public void run() {
                 final int i = iLevel + Integer.parseInt(String.valueOf(Math.round(Math.random() * 3)));
                 try {
-                    getActivity().runOnUiThread(new Runnable() {
+                    activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             gauge.setValue(i);

@@ -1,6 +1,8 @@
 package com.example.mjhwa.elecston.views;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -41,9 +43,6 @@ public class MainActivity extends AppCompatActivity
         CheckFragment.OnFragmentInteractionListener,
         TrustFragment.OnFragmentInteractionListener,
         FAQFragment.OnFragmentInteractionListener,
-        Tab1Fragment.OnFragmentInteractionListener,
-        Tab2Fragment.OnFragmentInteractionListener,
-        Tab3Fragment.OnFragmentInteractionListener,
         NavigationView.OnNavigationItemSelectedListener {
 
     Button btn_ai, btn_tran, btn_sun, btn_check, btn_trust, btn_faq;
@@ -91,41 +90,46 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
         Class fragmentClass = null;
+        Activity activity = null;
+        Class activityClass = null;
 
         @SuppressWarnings("StatementWithEmptyBody")
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btn_ai:
-                    fragmentClass = AIFragment.class;
+                    // fragmentClass = AIFragment.class;
+                    activityClass = AIActivity.class;
                     break;
 
                 case R.id.btn_tran:
-                    fragmentClass = TranFragment.class;
+                    // fragmentClass = TranActivity.class;
+                    activityClass = TranActivity.class;
                     break;
 
                 case R.id.btn_sun:
-                    fragmentClass = SunFragment.class;
+                    // fragmentClass = SunFragment.class;
                     break;
 
                 case R.id.btn_check:
-                    fragmentClass = CheckFragment.class;
+                    // fragmentClass = CheckFragment.class;
                     break;
 
                 case R.id.btn_trust:
-                    fragmentClass = TrustFragment.class;
+                    // fragmentClass = TrustFragment.class;
                     break;
 
                 case R.id.btn_faq:
-                    fragmentClass = FAQFragment.class;
+                    // fragmentClass = FAQFragment.class;
                     break;
 
                 default:
-                    fragmentClass = MainActivity.class;
+                    // fragmentClass = MainActivity.class;
                     break;
 
             }
 
+            /*
             try {
                 fragment = (Fragment) fragmentClass.newInstance();
             } catch (Exception e) {
@@ -134,6 +138,9 @@ public class MainActivity extends AppCompatActivity
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+            */
+            Intent intent = new Intent(getApplicationContext(), activityClass);
+            startActivity(intent);
         }
     };
 
@@ -174,21 +181,26 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         Fragment fragment = null;
+        Activity activity = null;
         Class fragmentClass;
+        Class activityClass = null;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         switch (id) {
             case R.id.nav_home:
-                fragmentClass = MainActivity.class;
+                // fragmentClass = MainActivity.class;
+                activityClass = MainActivity.class;
                 break;
 
             case R.id.nav_ai:
-                fragmentClass = AIFragment.class;
+                // fragmentClass = AIFragment.class;
+                activityClass = AIActivity.class;
                 break;
 
             case R.id.nav_tran:
-                fragmentClass = TranFragment.class;
+                // fragmentClass = TranFragment.class;
+                activityClass = TranActivity.class;
                 break;
 
             case R.id.nav_sun:
@@ -213,14 +225,19 @@ public class MainActivity extends AppCompatActivity
 
         }
 
+        /*
         try {
-            fragment = (Fragment) fragmentClass.newInstance();
+            // fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        */
+
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
