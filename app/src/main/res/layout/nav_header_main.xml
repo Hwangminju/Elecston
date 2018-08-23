@@ -42,14 +42,15 @@
             <Button
                 android:id="@+id/btLogout"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:background="#00ff0000"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:text="로그아웃" />
 
             <View
                 android:layout_width="1dp"
-                android:layout_height="20dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="5dp"
                 android:background="@color/border_color" />
@@ -57,10 +58,11 @@
             <Button
                 android:id="@+id/btInfo"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="50dp"
                 android:background="#00ff0000"
                 android:layout_weight="1"
-                android:text="정보수정" />
+                android:text="@string/level" />
 
         </LinearLayout>
     </LinearLayout>

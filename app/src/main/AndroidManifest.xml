@@ -33,7 +33,10 @@
             android:theme="@android:style/Animation.Dialog" />
         <activity android:name=".views.AIActivity" />
         <activity android:name=".views.SunActivity" />
-        <activity android:name=".views.SellActivity"></activity>
+        <activity android:name=".views.SellActivity" />
+        <activity android:name=".views.SignActivity">
+
+        </activity>
     </application>
 
 </manifest>

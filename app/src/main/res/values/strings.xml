@@ -18,10 +18,12 @@
     <string name="ai_5"><font color="#e4ce27" size="25">태양광</font><font size="15">을 구매하기를 </font>
         <font color="#6e83ed" size="25">추천</font><font size="15">합니다.</font></string>
 
-    <string name="up_down"><font size="15">하한가(1.5배) = </font><font color="#ae3030" size="30">261원/KW\n</font>
+    <string name="up_down"><font size="15">하한가(1.5배) = </font><font color="#ae3030" size="20">261원/KW\n</font>
         <font size="15">상한가(1.9배) = </font><font color="#ae3030" size="30">319원/KW</font></string>
     <string name="sell"><font size="15">현재 고객님은\n</font><font color="#764b94" size="25">28KW </font>
         <font size="15">판매 가능합니다.</font></string>
+
+    <string name="level"><font size="12">거래실적\n</font><font size="15">1단계</font></string>
 
 
     <!-- tab2 프래그먼트 지정 -->

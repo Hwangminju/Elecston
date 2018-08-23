@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.SellActivity"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:layout_marginTop="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,6 +79,146 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_marginVertical="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="판매 전력 등록"
+        android:layout_below="@id/third"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:textSize="30dp"
+        android:id="@+id/word"
+        android:fontFamily="cursive"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/word"
+        android:background="@drawable/dash_line"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/etSell"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="261"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="(원)" />
+
+            <ImageButton
+                android:id="@+id/btDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/down_click"
+                android:src="@drawable/down_arrow" />
+
+            <ImageButton
+                android:id="@+id/btUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/more_rounded"
+                android:src="@drawable/up_click" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="(-1 / +5)" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/border_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/etSell_2"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="(KW)" />
+
+            <ImageButton
+                android:id="@+id/btDown_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/down_click"
+                android:src="@drawable/down_arrow" />
+
+            <ImageButton
+                android:id="@+id/btUp_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/more_rounded"
+                android:src="@drawable/up_click" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="(-1 / +5)" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/border_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="등록"
+                android:id="@+id/btOK"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

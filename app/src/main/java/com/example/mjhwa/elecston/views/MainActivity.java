@@ -2,7 +2,9 @@ package com.example.mjhwa.elecston.views;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mjhwa.elecston.Fragments.AIFragment;
 import com.example.mjhwa.elecston.Fragments.CheckFragment;
@@ -38,6 +42,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView.OnNavigationItemSelectedListener {
 
     Button btn_ai, btn_tran, btn_sun, btn_check, btn_trust, btn_faq;
+    Button btLogOut;
+    TextView tvUser;
+    Intent intent = getIntent();
+    String id = "";
+
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
 
     @Override
     public void onFragmentInteraction(Uri uri){
@@ -48,17 +59,15 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        pref = getSharedPreferences("User", MODE_PRIVATE);
+        id = pref.getString("id","");
+
+        intent = getIntent();
+        // id = intent.getStringExtra("id");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -76,6 +85,25 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View navHeaderView = navigationView.getHeaderView(0);
+        tvUser = (TextView) navHeaderView.findViewById(R.id.tvUser);
+        tvUser.setText(id + " 님, 환영합니다.");
+
+        btLogOut = (Button) navHeaderView.findViewById(R.id.btLogout);
+        btLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences pref = getSharedPreferences("User",MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.clear();
+                editor.commit();
+
+                Intent intent = new Intent(getApplication(), SignActivity.class);
+                Toast.makeText(MainActivity.this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
     }
 
     private Button.OnClickListener btnClickListener = new View.OnClickListener() {
