@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="text1">
+        <item><font color="#ae3030" size="30">부족</font></item>
+    </string-array>
+
+    <string-array name="text2">
+        <item><font color="#e4ce27" size="25">태양광</font></item>
+    </string-array>
+
+    <string-array name="text3">
+        <item><font color="#6e83ed" size="25">추천</font></item>
+    </string-array>
+</resources>

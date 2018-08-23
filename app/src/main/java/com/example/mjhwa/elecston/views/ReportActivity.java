@@ -1,11 +1,9 @@
 package com.example.mjhwa.elecston.views;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.style.BackgroundColorSpan;
@@ -16,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mjhwa.elecston.R;
-import com.example.mjhwa.elecston.TabFragments.Tab1Fragment;
 import com.example.mjhwa.elecston.models.CustomGauge;
 
 import java.text.SimpleDateFormat;

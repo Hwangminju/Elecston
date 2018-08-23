@@ -30,8 +30,10 @@
         <activity android:name=".views.TranActivity" />
         <activity
             android:name=".views.ReportActivity"
-            android:theme="@android:style/Animation.Dialog"></activity>
-        <activity android:name=".views.AIActivity"></activity>
+            android:theme="@android:style/Animation.Dialog" />
+        <activity android:name=".views.AIActivity" />
+        <activity android:name=".views.SunActivity" />
+        <activity android:name=".views.SellActivity"></activity>
     </application>
 
 </manifest>

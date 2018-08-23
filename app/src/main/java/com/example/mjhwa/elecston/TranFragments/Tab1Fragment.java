@@ -1,4 +1,4 @@
-package com.example.mjhwa.elecston.TabFragments;
+package com.example.mjhwa.elecston.TranFragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.text.Spannable;
 import android.text.style.BackgroundColorSpan;
 import android.view.LayoutInflater;
@@ -19,10 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.mjhwa.elecston.Adapters.PagerAdapter;
-import com.example.mjhwa.elecston.Fragments.TranFragment;
 import com.example.mjhwa.elecston.R;
 import com.example.mjhwa.elecston.models.CustomGauge;
 import com.example.mjhwa.elecston.views.ReportActivity;

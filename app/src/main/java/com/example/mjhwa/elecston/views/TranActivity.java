@@ -5,14 +5,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.example.mjhwa.elecston.Adapters.PagerAdapter;
 import com.example.mjhwa.elecston.R;
-import com.example.mjhwa.elecston.TabFragments.Tab1Fragment;
-import com.example.mjhwa.elecston.TabFragments.Tab2Fragment;
-import com.example.mjhwa.elecston.TabFragments.Tab3Fragment;
+import com.example.mjhwa.elecston.TranFragments.Tab1Fragment;
+import com.example.mjhwa.elecston.TranFragments.Tab2Fragment;
+import com.example.mjhwa.elecston.TranFragments.Tab3Fragment;
 
 public class TranActivity extends AppCompatActivity implements
         Tab1Fragment.OnFragmentInteractionListener,

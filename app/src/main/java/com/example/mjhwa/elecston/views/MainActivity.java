@@ -5,8 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,16 +22,10 @@ import android.widget.Button;
 import com.example.mjhwa.elecston.Fragments.AIFragment;
 import com.example.mjhwa.elecston.Fragments.CheckFragment;
 import com.example.mjhwa.elecston.Fragments.FAQFragment;
-import com.example.mjhwa.elecston.Fragments.HomeFragment;
 import com.example.mjhwa.elecston.Fragments.SunFragment;
 import com.example.mjhwa.elecston.Fragments.TranFragment;
 import com.example.mjhwa.elecston.Fragments.TrustFragment;
 import com.example.mjhwa.elecston.R;
-import com.example.mjhwa.elecston.TabFragments.Tab1Fragment;
-import com.example.mjhwa.elecston.TabFragments.Tab2Fragment;
-import com.example.mjhwa.elecston.TabFragments.Tab3Fragment;
-
-import javax.net.ssl.TrustManager;
 
 public class MainActivity extends AppCompatActivity
         implements

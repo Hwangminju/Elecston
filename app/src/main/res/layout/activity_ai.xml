@@ -61,14 +61,50 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@id/graph"
-        android:id="@+id/ai_1"/>
+        android:id="@+id/ai_1"
+        android:text="@string/ai_1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/ai_1"
+        android:id="@+id/linear1"
+        android:orientation="horizontal">
+
+        <com.tomer.fadingtextview.FadingTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ai_2"
+            android:textSize="30dp"
+            android:textColor="#ae3030"
+            app:texts="@array/text1"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/ai_3"
+            android:text="@string/ai_3"/>
+
+    </LinearLayout>
 
     <TextView
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_below="@id/ai_1"
-        android:id="@+id/ai_2"/>
+        android:layout_below="@id/linear1"
+        android:id="@+id/ai_4"
+        android:text="@string/ai_4"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/ai_4"
+        android:text="@string/ai_5"/>
 
 </RelativeLayout>

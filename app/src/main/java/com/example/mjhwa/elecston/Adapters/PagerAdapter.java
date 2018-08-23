@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.mjhwa.elecston.TabFragments.Tab1Fragment;
-import com.example.mjhwa.elecston.TabFragments.Tab2Fragment;
-import com.example.mjhwa.elecston.TabFragments.Tab3Fragment;
+import com.example.mjhwa.elecston.TranFragments.Tab1Fragment;
+import com.example.mjhwa.elecston.TranFragments.Tab2Fragment;
+import com.example.mjhwa.elecston.TranFragments.Tab3Fragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 

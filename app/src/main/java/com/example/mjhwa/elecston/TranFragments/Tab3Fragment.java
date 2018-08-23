@@ -1,25 +1,27 @@
-package com.example.mjhwa.elecston.TabFragments;
+package com.example.mjhwa.elecston.TranFragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.example.mjhwa.elecston.R;
+import com.example.mjhwa.elecston.views.SellActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Tab2Fragment.OnFragmentInteractionListener} interface
+ * {@link Tab3Fragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Tab2Fragment#newInstance} factory method to
+ * Use the {@link Tab3Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Tab2Fragment extends Fragment {
+public class Tab3Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,11 +31,11 @@ public class Tab2Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    TextView nu1, nu2, nu3, nu4, nu5, nu6, nu7;
+    Button btSell;
 
     private OnFragmentInteractionListener mListener;
 
-    public Tab2Fragment() {
+    public Tab3Fragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +43,11 @@ public class Tab2Fragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment Tab2Fragment.
+     * @return A new instance of fragment Tab3Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Tab2Fragment newInstance() {
-        Tab2Fragment fragment = new Tab2Fragment();
+    public static Tab3Fragment newInstance() {
+        Tab3Fragment fragment = new Tab3Fragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -63,26 +65,21 @@ public class Tab2Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment_tab3, container, false);
+
+        btSell = (Button)v.findViewById(R.id.btSell);
+
+        btSell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SellActivity.class);
+            }
+        });
+
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_tab2, container, false);
-
-        nu1 = (TextView) v.findViewById(R.id.nu1);
-        nu2 = (TextView) v.findViewById(R.id.nu2);
-        nu3 = (TextView) v.findViewById(R.id.nu3);
-        nu4 = (TextView) v.findViewById(R.id.nu4);
-        nu5 = (TextView) v.findViewById(R.id.nu5);
-        nu6 = (TextView) v.findViewById(R.id.nu6);
-        nu7 = (TextView) v.findViewById(R.id.nu7);
-
-        nu1.setText(R.string.nu1);
-        nu2.setText(R.string.nu2);
-        nu3.setText(R.string.nu3);
-        nu4.setText(R.string.nu4);
-        nu5.setText(R.string.nu5);
-        nu6.setText(R.string.nu6);
-        nu7.setText(R.string.nu7);
-
         return v;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
