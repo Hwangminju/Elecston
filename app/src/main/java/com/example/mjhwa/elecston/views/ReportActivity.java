@@ -198,8 +198,12 @@ public class ReportActivity extends Activity {
 
         Spannable spanText = Spannable.Factory.getInstance().newSpannable(dTime);
         spanText.setSpan(new BackgroundColorSpan(0xFFFFFF00), 0,9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        Date currentTime = new Date( );
+        SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
+        dTime = formatter.format ( currentTime );
         tvDate.setText(dTime);
-        mDate = new Date();
+
         btToday.setText("");
         btPrev.setEnabled(true);
 

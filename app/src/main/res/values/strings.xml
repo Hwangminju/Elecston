@@ -19,7 +19,7 @@
         <font color="#6e83ed" size="25">추천</font><font size="15">합니다.</font></string>
 
     <string name="up_down"><font size="15">하한가(1.5배) = </font><font color="#ae3030" size="20">261원/KW\n</font>
-        <font size="15">상한가(1.9배) = </font><font color="#ae3030" size="30">319원/KW</font></string>
+        <font size="15">상한가(1.9배) = </font><font color="#ae3030" size="20">319원/KW</font></string>
     <string name="sell"><font size="15">현재 고객님은\n</font><font color="#764b94" size="25">28KW </font>
         <font size="15">판매 가능합니다.</font></string>
 

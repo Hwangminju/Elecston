@@ -100,24 +100,23 @@ public class Tab3Fragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // int request = requestCode & 0xfffff;
+        super.onActivityResult(requestCode, resultCode, data);
 
-        // Fragment fragment = getFragmentManager().findFragmentByTag("Tag");
-        // fragment.onActivityResult(request, resultCode, data);
+        if (resultCode == RESULT_OK) {
 
-        if (resultCode != RESULT_OK) {
-            return ;
-        }
+            // SellActivity에서 판매가격, 판매량 가져오기
+            if (requestCode == 3000) {
+                Toast.makeText(getContext(), "등록 완료", Toast.LENGTH_SHORT).show();
+                int price = data.getIntExtra("price", 0);
+                int elec = data.getIntExtra("elec", 0);
 
-        // SellActivity에서 판매가격, 판매량 가져오기
-        if (requestCode == 3000) {
-            Toast.makeText(getContext(), "등록 완료", Toast.LENGTH_SHORT).show();
-            int price = data.getIntExtra("price", 0);
-            int elec = data.getIntExtra("elec", 0);
+                CustomAdapter adapter = new CustomAdapter(getActivity(), 0, items);
+                items.add(String.valueOf(price) + "원/KW, 총 " + String.valueOf(elec) + "KW");
+                listView.setAdapter(adapter);
 
-            items.add(String.valueOf(price) + "원/KW, 총 " + String.valueOf(elec)+ "KW");
+                adapter.notifyDataSetChanged();
 
-            CustomAdapter adapter = new CustomAdapter(getActivity(), 0, items);
+            }
         }
     }
 

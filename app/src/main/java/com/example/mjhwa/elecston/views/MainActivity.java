@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity
     Button btLogOut;
     TextView tvUser;
     Intent intent = getIntent();
-    String id = "";
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         pref = getSharedPreferences("User", MODE_PRIVATE);
-        id = pref.getString("id","");
 
         intent = getIntent();
         // id = intent.getStringExtra("id");
@@ -88,7 +87,8 @@ public class MainActivity extends AppCompatActivity
 
         View navHeaderView = navigationView.getHeaderView(0);
         tvUser = (TextView) navHeaderView.findViewById(R.id.tvUser);
-        tvUser.setText(id + " 님, 환영합니다.");
+        tvUser.setText(pref.getString("id",""));
+        Log.d("id 전달", pref.getString("id", ""));
 
         btLogOut = (Button) navHeaderView.findViewById(R.id.btLogout);
         btLogOut.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +96,14 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 SharedPreferences pref = getSharedPreferences("User",MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
-                editor.clear();
-                editor.commit();
 
                 Intent intent = new Intent(getApplication(), SignActivity.class);
                 Toast.makeText(MainActivity.this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+
+                editor.clear();
+                editor.commit();
                 finish();
+
             }
         });
     }

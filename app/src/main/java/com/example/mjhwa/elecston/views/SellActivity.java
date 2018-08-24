@@ -37,6 +37,7 @@ public class SellActivity extends AppCompatActivity {
         btUp.setOnClickListener(btnClickListener);
         btDown_2.setOnClickListener(btnClickListener);
         btUp_2.setOnClickListener(btnClickListener);
+        btOK.setOnClickListener(btnClickListener);
 
         // int min = Integer.parseInt("" + etSell.getText());
     }
@@ -46,52 +47,64 @@ public class SellActivity extends AppCompatActivity {
         public void onClick(View view) {
             int temp = Integer.parseInt("" + etSell.getText());
             int temp_2 = Integer.parseInt("" + etSell_2.getText());
-            int i = 0;
-            int j = 0;
 
             switch (view.getId()) {
                 case R.id.btDown:
-                    temp = temp - 1;
-                    etSell.setText("" + temp);
-
-                    if (temp <= 261) {
+                    temp = Integer.parseInt("" + etSell.getText());
+                    if (temp - 1 < 261) {
                         btDown.setEnabled(false);
+                    }
+
+                    else {
+                        temp = temp - 1;
+                        etSell.setText("" + temp);
                     }
                     break;
 
                 case R.id.btUp:
-                    temp = temp + 5;
-                    etSell.setText("" + temp);
-
-                    if (temp >= 319) {
+                    temp = Integer.parseInt("" + etSell.getText());
+                    if (temp + 5 >319) {
                         btUp.setEnabled(false);
+                    }
+
+                    else {
+                        temp = temp + 5;
+                        etSell.setText("" + temp);
                     }
                     break;
 
                 case R.id.btDown_2:
-                    temp_2 = temp_2 - 1;
-                    etSell_2.setText("" + temp_2);
-
-                    if (temp_2 <= 0) {
+                    temp_2 = Integer.parseInt("" + etSell_2.getText());
+                    if (temp_2 - 1 < 0) {
                         btDown_2.setEnabled(false);
+                    }
+
+                    else {
+                        temp_2 = temp_2 - 1;
+                        etSell_2.setText("" + temp_2);
                     }
                     break;
 
                 case R.id.btUp_2:
-                    temp_2 = temp_2 + 5;
-                    etSell_2.setText("" + temp_2);
-
-                    if (temp_2 >= 28) {
+                    temp_2 = Integer.parseInt("" + etSell_2.getText());
+                    if (temp_2 + 5 > 28) {
                         btUp_2.setEnabled(false);
+                    }
+
+                    else {
+                        temp_2 = temp_2 + 5;
+                        etSell_2.setText("" + temp_2);
                     }
                     break;
 
                 case R.id.btOK:
-                    Intent intent = new Intent();
+                    Intent intent = getIntent();
                     intent.putExtra("price", temp);
                     intent.putExtra("elec", temp_2);
                     setResult(RESULT_OK, intent);
                     finish();
+                    break;
+
                 default:
                     break;
             }
