@@ -115,7 +115,6 @@ public class Tab1Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -158,7 +157,10 @@ public class Tab1Fragment extends Fragment {
         mImageDrawable = (ClipDrawable) img.getDrawable();
         mImageDrawable.setLevel(0);
 
-        int temp_level = (75 * MAX_LEVEL) / 100;
+        int level_1 = 3 * (currentTime.getDate() - 1); // 첫 번째 수치
+        final int level_2 = currentTime.getDate() - 1; // 두 번째 수치
+
+        int temp_level = (level_1 * MAX_LEVEL) / 100;
 
         if (toLevel == temp_level || temp_level > MAX_LEVEL) {
             return v;
@@ -182,7 +184,7 @@ public class Tab1Fragment extends Fragment {
 
         new Thread() {
             public void run() {
-                final int i = 30;
+                final int i = level_2;
                 try {
                     activity.runOnUiThread(new Runnable() {
                         @Override
@@ -259,6 +261,11 @@ public class Tab1Fragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -481,4 +488,15 @@ public class Tab1Fragment extends Fragment {
     public void onResume() {
         super.onResume();
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
 }

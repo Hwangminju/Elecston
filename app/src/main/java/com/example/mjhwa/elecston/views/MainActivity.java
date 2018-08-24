@@ -2,14 +2,11 @@ package com.example.mjhwa.elecston.views;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -27,7 +24,6 @@ import android.widget.Toast;
 import com.example.mjhwa.elecston.Fragments.AIFragment;
 import com.example.mjhwa.elecston.Fragments.CheckFragment;
 import com.example.mjhwa.elecston.Fragments.FAQFragment;
-import com.example.mjhwa.elecston.Fragments.SunFragment;
 import com.example.mjhwa.elecston.Fragments.TranFragment;
 import com.example.mjhwa.elecston.Fragments.TrustFragment;
 import com.example.mjhwa.elecston.R;
@@ -36,7 +32,6 @@ public class MainActivity extends AppCompatActivity
         implements
         AIFragment.OnFragmentInteractionListener,
         TranFragment.OnFragmentInteractionListener,
-        SunFragment.OnFragmentInteractionListener,
         CheckFragment.OnFragmentInteractionListener,
         TrustFragment.OnFragmentInteractionListener,
         FAQFragment.OnFragmentInteractionListener,
@@ -131,10 +126,12 @@ public class MainActivity extends AppCompatActivity
 
                 case R.id.btn_sun:
                     // fragmentClass = SunFragment.class;
+                    activityClass = SunActivity.class;
                     break;
 
                 case R.id.btn_check:
                     // fragmentClass = CheckFragment.class;
+                    activityClass = CheckActivity.class;
                     break;
 
                 case R.id.btn_trust:
@@ -226,15 +223,17 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_sun:
-                fragmentClass = SunFragment.class;
+                // fragmentClass = SunFragment.class;
+                activityClass = SunActivity.class;
+                break;
+
+            case R.id.nav_check:
+                // fragmentClass = CheckFragment.class;
+                activityClass = CheckActivity.class;
                 break;
 
             case R.id.nav_trust:
                 fragmentClass = TrustFragment.class;
-                break;
-
-            case R.id.nav_check:
-                fragmentClass = CheckFragment.class;
                 break;
 
             case R.id.nav_faq:

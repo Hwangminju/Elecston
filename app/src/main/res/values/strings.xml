@@ -5,7 +5,7 @@
 
     <!-- tab1 프래그먼트 지정 -->
     <string name="tv1"><font size="15">고객님은 현재</font>\n누진세 <font color="#ae3030" size="30">1단계 </font>입니다</string>
-    <string name="tv2">누진세 <font color="#ae3030" size="20">1단계 </font>소진 시까지\n<font color="#ae3030" size="30">28.5kW </font>남은 상태입니다</string>
+    <string name="tv2">누진세 <font color="#ae3030" size="20">1단계 </font>소진 시까지\n<font color="#ae3030" size="30">28.5KW </font>남은 상태입니다</string>
     <string name="tv4">오늘의 혜택\n<font size="20">10kWh 구매당\n</font><font color="#6e83ed" size="25">통신 3사 데이터 1GB 증정!</font></string>
     <string name="tv5">현재 누진세 1단계 시세\n<font color="#764b94" size="30">167.94원/kWh</font></string>
     <string name="tv6">현재 누진세 2단계 시세\n<font color="#764b94" size="30">319.43원/kWh</font></string>
@@ -20,20 +20,34 @@
 
     <string name="up_down"><font size="15">하한가(1.5배) = </font><font color="#ae3030" size="20">261원/KW\n</font>
         <font size="15">상한가(1.9배) = </font><font color="#ae3030" size="20">319원/KW</font></string>
+    <string name="up_down_s"><font size="15">하한가 = </font><font color="#ae3030" size="20">52원/KW</font>
+        <font size="15">\n상한가 = </font><font color="#ae3030" size="20">79원/KW</font></string>
     <string name="sell"><font size="15">현재 고객님은\n</font><font color="#764b94" size="25">28KW </font>
         <font size="15">판매 가능합니다.</font></string>
-
+    <string name="sell2"><font size="15">고객님이 보유하신 태양광\n</font></string>
+    <string name="sell2_2"><font color="#764b94" size="25"></font></string>
     <string name="level"><font size="12">거래실적\n</font><font size="15">1단계</font></string>
+
+    <string name="sun">현재 태양광 시세\n<font color="#764b94" size="30">76.95원/kWh</font></string>
 
 
     <!-- tab2 프래그먼트 지정 -->
-    <string name="nu1">누진세 1단계\n<font color="#6e83ed" size="30">가격: 150원/kWh</font></string>
-    <string name="nu2">누진세 2단계\n<font color="#6e83ed" size="30">가격: 320원/kWh</font></string>
-    <string name="nu3">누진세 2단계\n<font color="#6e83ed" size="30">가격: 318원/kWh</font></string>
-    <string name="nu4">누진세 1단계\n<font color="#6e83ed" size="30">가격: 177원/kWh</font></string>
-    <string name="nu5">누진세 1단계\n<font color="#6e83ed" size="30">가격: 175원/kWh</font></string>
-    <string name="nu6">누진세 2단계\n<font color="#6e83ed" size="30">가격: 319원/kWh</font></string>
-    <string name="nu7">누진세 2단계\n<font color="#6e83ed" size="30">가격: 168원/kWh</font></string>
+    <string name="nu1">누진세 1단계\n<font color="#6e83ed" size="30">150원/kWh, 56KW</font></string>
+    <string name="nu2">누진세 2단계\n<font color="#6e83ed" size="30">320원/kWh, 43KW</font></string>
+    <string name="nu3">누진세 2단계\n<font color="#6e83ed" size="30">318원/kWh, 70KW</font></string>
+    <string name="nu4">누진세 1단계\n<font color="#6e83ed" size="30">177원/kWh, 55KW</font></string>
+    <string name="nu5">누진세 1단계\n<font color="#6e83ed" size="30">175원/kWh, 42KW</font></string>
+    <string name="nu6">누진세 2단계\n<font color="#6e83ed" size="30">319원/kWh, 35KW</font></string>
+    <string name="nu7">누진세 2단계\n<font color="#6e83ed" size="30">168원/kWh, 79KW</font></string>
+
+    <!-- 태양광 거래소 -->
+    <string name="ta1"><font color="#6e83ed" size="20">75원/KWh, 50KW</font></string>
+    <string name="ta2"><font color="#6e83ed" size="20">61원/KWh, 70KW</font></string>
+    <string name="ta3"><font color="#6e83ed" size="20">70원/KWh, 64KW</font></string>
+    <string name="ta4"><font color="#6e83ed" size="20">59원/KWh, 39KW</font></string>
+    <string name="ta5"><font color="#6e83ed" size="20">97원/KWh, 75KW</font></string>
+    <string name="ta6"><font color="#6e83ed" size="20">84원/KWh, 44KW</font></string>
+    <string name="ta7"><font color="#6e83ed" size="20">80원/KWh, 99KW</font></string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

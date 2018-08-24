@@ -4,15 +4,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.mjhwa.elecston.TranFragments.Tab1Fragment;
-import com.example.mjhwa.elecston.TranFragments.Tab2Fragment;
-import com.example.mjhwa.elecston.TranFragments.Tab3Fragment;
+import com.example.mjhwa.elecston.SunFragments.CurrencyFragment;
+import com.example.mjhwa.elecston.SunFragments.YourFragment;
+import com.example.mjhwa.elecston.SunFragments.MyFragment;
 
-public class PagerAdapter extends FragmentPagerAdapter {
+public class sPagerAdapter extends FragmentPagerAdapter {
 
     private static int PAGE_NUMBER = 3;
 
-    public PagerAdapter(FragmentManager fm) {
+    public sPagerAdapter(FragmentManager fm) {
         super (fm);
     }
 
@@ -20,11 +20,11 @@ public class PagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return Tab1Fragment.newInstance();
+                return CurrencyFragment.newInstance();
             case 1:
-                return Tab2Fragment.newInstance();
+                return YourFragment.newInstance();
             case 2:
-                return Tab3Fragment.newInstance();
+                return MyFragment.newInstance();
             default:
                 return null;
         }

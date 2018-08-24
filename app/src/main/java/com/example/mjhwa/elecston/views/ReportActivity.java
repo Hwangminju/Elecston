@@ -12,11 +12,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mjhwa.elecston.R;
 import com.example.mjhwa.elecston.models.CustomGauge;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -103,7 +105,10 @@ public class ReportActivity extends Activity {
         mImageDrawable = (ClipDrawable) img.getDrawable();
         mImageDrawable.setLevel(0);
 
-        int temp_level = (75 * MAX_LEVEL) / 100;
+        int level_1 = 3 * (currentTime.getDate() - 1); // 첫 번째 수치
+        final int level_2 = currentTime.getDate() - 1;
+
+        int temp_level = (level_1 * MAX_LEVEL) / 100;
 
         if (toLevel == temp_level || temp_level > MAX_LEVEL) {
             return;
@@ -127,7 +132,7 @@ public class ReportActivity extends Activity {
 
         new Thread() {
             public void run() {
-                final int i = 30;
+                final int i = level_2;
                 try {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -200,14 +205,21 @@ public class ReportActivity extends Activity {
         spanText.setSpan(new BackgroundColorSpan(0xFFFFFF00), 0,9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         Date currentTime = new Date( );
+        mDate = currentTime;
         SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
         dTime = formatter.format ( currentTime );
         tvDate.setText(dTime);
 
+        btNext.setVisibility(View.INVISIBLE);
+        btNext.setEnabled(false);
+
         btToday.setText("");
         btPrev.setEnabled(true);
 
-        int temp_level = (75 * MAX_LEVEL) / 100;
+        int level_1 = 3 * (currentTime.getDate() - 1); // 첫 번째 수치
+        final int level_2 = currentTime.getDate() - 1; // 두 번째 수치
+
+        int temp_level = (level_1 * MAX_LEVEL) / 100;
 
         if (toLevel == temp_level || temp_level > MAX_LEVEL) {
             return;
@@ -229,7 +241,7 @@ public class ReportActivity extends Activity {
 
         new Thread() {
             public void run() {
-                final int i = 30;
+                final int i = level_2;
                 try {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -251,7 +263,16 @@ public class ReportActivity extends Activity {
 
         // int temp_level = ((Integer.parseInt(etPercent.getText().toString())) * MAX_LEVEL) / 100;
 
-        int temp_level = toLevel - Integer.parseInt(String.valueOf(Math.round(Math.random() * 5)));
+        // 날짜의 일마다 정해지게 수치 정하는 것
+        mDate.setDate(mDate.getDate() - 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(mDate);
+        cal.add(Calendar.DATE, -1);
+
+        int level_1 = 3 * (Integer.valueOf(cal.get(Calendar.DATE)) - 1);
+        final int level_2 = Integer.valueOf(cal.get(Calendar.DATE)) - 1;
+
+        int temp_level = (level_1 * MAX_LEVEL) / 100;
 
         btToday.setText("TODAY");
         btNext.setEnabled(true);
@@ -276,7 +297,7 @@ public class ReportActivity extends Activity {
 
         new Thread() {
             public void run() {
-                final int i = iLevel - Integer.parseInt(String.valueOf(Math.round(Math.random() * 3)));
+                final int i = level_2;
                 try {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -292,13 +313,6 @@ public class ReportActivity extends Activity {
 
             }
         }.start();
-
-        mDate.setDate(mDate.getDate()-1);
-
-        if (mDate.getDate() == 1) {
-            btPrev.setEnabled(false);
-            btPrev.setVisibility(View.INVISIBLE);
-        }
 
         SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
         dTime = formatter.format ( mDate );
@@ -312,7 +326,16 @@ public class ReportActivity extends Activity {
 
         // int temp_level = ((Integer.parseInt(etPercent.getText().toString())) * MAX_LEVEL) / 100;
 
-        int temp_level = toLevel + Integer.parseInt(String.valueOf(Math.round(Math.random() * 5)));
+        // 날짜의 일마다 정해지게 수치 정하는 것
+        mDate.setDate(mDate.getDate() + 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(mDate);
+        cal.add(Calendar.DATE, 1);
+
+        int level_1 = 3 * (Integer.valueOf(cal.get(Calendar.DATE)) - 1);
+        final int level_2 = Integer.valueOf(cal.get(Calendar.DATE)) - 1;
+
+        int temp_level = (level_1 * MAX_LEVEL) / 100;
 
         btToday.setText("TODAY");
         btNext.setEnabled(true);
@@ -337,7 +360,7 @@ public class ReportActivity extends Activity {
 
         new Thread() {
             public void run() {
-                final int i = iLevel + Integer.parseInt(String.valueOf(Math.round(Math.random() * 3)));
+                final int i = level_2;
                 try {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -354,9 +377,23 @@ public class ReportActivity extends Activity {
             }
         }.start();
 
-        mDate.setDate(mDate.getDate()+1);
+        String year = String.valueOf(cal.get(Calendar.YEAR));
+        String month = String.valueOf(cal.get(Calendar.MONTH)+1);
+        String date = String.valueOf(cal.get(Calendar.DATE));
 
-        if (mDate.getDate() == new Date().getDate()) {
+        if (month.length() < 2)
+            month = "0" + month;
+        if (date.length() < 2)
+            date = "0" + date;
+
+        if (mDate.getYear() == new Date().getYear() && mDate.getMonth() == new Date().getMonth() && new Date().getDate() == new Date().getDate()) {
+            btNext.setVisibility(View.INVISIBLE);
+            btNext.setEnabled(false);
+        }
+
+        if ((cal.get(Calendar.YEAR) == new Date().getYear()) &&
+                (cal.get(Calendar.MONTH) == new Date().getMonth()) &&
+                        (cal.get(Calendar.DATE) == new Date().getDate())) {
             btNext.setEnabled(false);
             btNext.setVisibility(View.INVISIBLE);
         }
@@ -367,6 +404,8 @@ public class ReportActivity extends Activity {
         Spannable spanText = Spannable.Factory.getInstance().newSpannable(dTime);
         spanText.setSpan(new BackgroundColorSpan(0xFFFFFF00), 0,9, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvDate.setText(dTime);
+
+        // tvDate.setText(year + "-" + month + "-" + date);
     }
 
     @Override

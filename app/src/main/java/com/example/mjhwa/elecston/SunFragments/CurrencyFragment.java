@@ -1,24 +1,28 @@
-package com.example.mjhwa.elecston.Fragments;
+package com.example.mjhwa.elecston.SunFragments;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mjhwa.elecston.R;
+import com.example.mjhwa.elecston.views.SunActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SunFragment.OnFragmentInteractionListener} interface
+ * {@link CurrencyFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SunFragment#newInstance} factory method to
+ * Use the {@link CurrencyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SunFragment extends Fragment {
+public class CurrencyFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,9 +32,11 @@ public class SunFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    TextView sun;
+
     private OnFragmentInteractionListener mListener;
 
-    public SunFragment() {
+    public CurrencyFragment() {
         // Required empty public constructor
     }
 
@@ -38,34 +44,26 @@ public class SunFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SunFragment.
+     * @return A new instance of fragment CurrencyFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SunFragment newInstance(String param1, String param2) {
-        SunFragment fragment = new SunFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+    public static CurrencyFragment newInstance() {
+        CurrencyFragment fragment = new CurrencyFragment();
+
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sun, container, false);
+       View v = inflater.inflate(R.layout.fragment_currency, container, false);
+       return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -84,6 +82,7 @@ public class SunFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+
     }
 
     @Override
