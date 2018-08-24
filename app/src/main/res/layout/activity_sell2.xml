@@ -141,8 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/down_click"
-                android:src="@drawable/down_arrow" />
+                android:background="@drawable/down_click" />
 
             <ImageButton
                 android:id="@+id/btUp"
@@ -194,8 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/down_click"
-                android:src="@drawable/down_arrow" />
+                android:background="@drawable/down_click" />
 
             <ImageButton
                 android:id="@+id/btUp_2"

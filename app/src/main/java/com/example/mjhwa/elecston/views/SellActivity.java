@@ -56,6 +56,7 @@ public class SellActivity extends AppCompatActivity {
                     }
 
                     else {
+                        btDown.setEnabled(true);
                         temp = temp - 1;
                         etSell.setText("" + temp);
                     }
@@ -68,6 +69,7 @@ public class SellActivity extends AppCompatActivity {
                     }
 
                     else {
+                        btUp.setEnabled(true);
                         temp = temp + 5;
                         etSell.setText("" + temp);
                     }
@@ -80,6 +82,7 @@ public class SellActivity extends AppCompatActivity {
                     }
 
                     else {
+                        btDown_2.setEnabled(true);
                         temp_2 = temp_2 - 1;
                         etSell_2.setText("" + temp_2);
                     }
@@ -92,6 +95,7 @@ public class SellActivity extends AppCompatActivity {
                     }
 
                     else {
+                        btUp_2.setEnabled(true);
                         temp_2 = temp_2 + 5;
                         etSell_2.setText("" + temp_2);
                     }

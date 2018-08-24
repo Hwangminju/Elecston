@@ -23,7 +23,10 @@ public class SunActivity extends AppCompatActivity implements
         YourFragment.OnFragmentInteractionListener,
         MyFragment.OnFragmentInteractionListener {
 
+    // 액티비티 간 데이터 공유
     public int sun = 119;
+    public int sum = 0;
+    public int mileage = 0;
     public static Context context;
 
     @Override
@@ -36,7 +39,6 @@ public class SunActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sun);
 
-        Toast.makeText(this, "태양광 보유량은 " + sun + " KW입니다.", Toast.LENGTH_LONG).show();
 
         ImageView imageView = (ImageView)findViewById(R.id.sun_image);
         imageView.setImageResource(R.drawable.powerpoles);
@@ -49,13 +51,38 @@ public class SunActivity extends AppCompatActivity implements
         mTab.setupWithViewPager(mViewPager);
 
         context = this;
+
+        Toast.makeText(this, "태양광 보유량은 " + ((SunActivity)SunActivity.context).getSun() + " KW입니다.", Toast.LENGTH_LONG).show();
+
     }
 
     public int getSun() {
-        return sun;
-    }
+        return ((SunActivity)SunActivity.context).sun;
+    } // 구매량
 
     public void addSun(int sunValue) {
-        sun = sun + sunValue;
+        int val = ((SunActivity)SunActivity.context).sun;
+        val = val + sunValue;
+        ((SunActivity)SunActivity.context).sun = val;
+    }
+
+    public int getSum() {
+        return ((SunActivity)SunActivity.context).sum;
+    } // 판매량
+
+    public void addSum(int sunValue) {
+        int val2 = ((SunActivity)SunActivity.context).sum;
+        val2 = val2 + sunValue;
+        ((SunActivity)SunActivity.context).sum = val2;
+    }
+
+    public int getMileage() {
+        return ((SunActivity)SunActivity.context).mileage;
+    }
+
+    public void addMileage(int mil) {
+        int val3 = ((SunActivity)SunActivity.context).mileage;
+        val3 = val3 + mil;
+        ((SunActivity)SunActivity.context).mileage = val3;
     }
 }

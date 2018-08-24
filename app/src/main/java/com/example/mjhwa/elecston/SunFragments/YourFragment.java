@@ -1,6 +1,8 @@
 package com.example.mjhwa.elecston.SunFragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,6 +33,8 @@ public class YourFragment extends Fragment {
     // TODO: Rename and change types of parameters
 
     private OnFragmentInteractionListener mListener;
+
+    int num = 0;
 
     TextView ta1, ta2, ta3, ta4, ta5, ta6, ta7;
     Button s1, s2, s3, s4, s5, s6, s7;
@@ -112,11 +116,14 @@ public class YourFragment extends Fragment {
                 case R.id.sell_6:
                 case R.id.sell_7:
 
-                    CustomDialog dialog = new CustomDialog(getContext());
+                    CustomDialog dialog = new CustomDialog(getContext(),R.style.MyDialogTheme);
                     dialog.setDialogListener(new MyDialogListener() {
                         @Override
                         public void onPositiveClicked(int buy) {
-                            setResult(buy);
+                            if (String.valueOf(buy) == "")
+                                Toast.makeText(getContext(),"유효한 숫자를 입력하세요.",Toast.LENGTH_SHORT).show();
+                            else
+                                setResult(buy);
                         }
 
                         @Override
@@ -134,9 +141,11 @@ public class YourFragment extends Fragment {
     };
 
     private void setResult(int buy){
-        ((SunActivity)getActivity()).addSun(buy);
-        int val = ((SunActivity)getActivity()).getSun();
+        ((SunActivity)SunActivity.context).addSun(buy);
+        int val = ((SunActivity)SunActivity.context).getSun();
         Toast.makeText(getActivity(), String.valueOf(buy) + " KW 구입 완료.\n태양광 보유량은 " + val + " KW 입니다.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "마일리지 5점 획득 :)", Toast.LENGTH_LONG).show();
+        ((SunActivity)SunActivity.context).addMileage(5);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

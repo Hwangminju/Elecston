@@ -43,7 +43,9 @@ public class CustomDialog extends Dialog implements View.OnClickListener{
         setContentView(LAYOUT);
 
         okTv = (TextView) findViewById(R.id.ok);
+        // okTv.setVisibility(View.VISIBLE);
         cancelTv = (TextView) findViewById(R.id.cancel);
+        // cancelTv.setVisibility(View.VISIBLE);
 
         okTv.setOnClickListener(this);
         cancelTv.setOnClickListener(this);

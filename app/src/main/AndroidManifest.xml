@@ -36,7 +36,9 @@
         <activity android:name=".views.SellActivity" />
         <activity android:name=".views.SignActivity" />
         <activity android:name=".views.Sell2Activity" />
-        <activity android:name=".views.CheckActivity"></activity>
+        <activity android:name=".views.CheckActivity" />
+        <activity android:name=".views.TrustActivity" />
+        <activity android:name=".views.FAQActivity"></activity>
     </application>
 
 </manifest>

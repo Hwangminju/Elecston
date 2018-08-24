@@ -210,7 +210,6 @@ public class ReportActivity extends Activity {
         dTime = formatter.format ( currentTime );
         tvDate.setText(dTime);
 
-        btNext.setVisibility(View.INVISIBLE);
         btNext.setEnabled(false);
 
         btToday.setText("");
@@ -267,7 +266,7 @@ public class ReportActivity extends Activity {
         mDate.setDate(mDate.getDate() - 1);
         Calendar cal = Calendar.getInstance();
         cal.setTime(mDate);
-        cal.add(Calendar.DATE, -1);
+        cal.add(Calendar.DATE,0);
 
         int level_1 = 3 * (Integer.valueOf(cal.get(Calendar.DATE)) - 1);
         final int level_2 = Integer.valueOf(cal.get(Calendar.DATE)) - 1;
@@ -330,7 +329,7 @@ public class ReportActivity extends Activity {
         mDate.setDate(mDate.getDate() + 1);
         Calendar cal = Calendar.getInstance();
         cal.setTime(mDate);
-        cal.add(Calendar.DATE, 1);
+        cal.add(Calendar.DATE, 0);
 
         int level_1 = 3 * (Integer.valueOf(cal.get(Calendar.DATE)) - 1);
         final int level_2 = Integer.valueOf(cal.get(Calendar.DATE)) - 1;
@@ -387,7 +386,6 @@ public class ReportActivity extends Activity {
             date = "0" + date;
 
         if (mDate.getYear() == new Date().getYear() && mDate.getMonth() == new Date().getMonth() && new Date().getDate() == new Date().getDate()) {
-            btNext.setVisibility(View.INVISIBLE);
             btNext.setEnabled(false);
         }
 
@@ -395,7 +393,6 @@ public class ReportActivity extends Activity {
                 (cal.get(Calendar.MONTH) == new Date().getMonth()) &&
                         (cal.get(Calendar.DATE) == new Date().getDate())) {
             btNext.setEnabled(false);
-            btNext.setVisibility(View.INVISIBLE);
         }
 
         SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );

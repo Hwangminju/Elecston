@@ -136,14 +136,16 @@ public class MainActivity extends AppCompatActivity
 
                 case R.id.btn_trust:
                     // fragmentClass = TrustFragment.class;
+                    activityClass = TrustActivity.class;
                     break;
 
                 case R.id.btn_faq:
                     // fragmentClass = FAQFragment.class;
+                    activityClass = FAQActivity.class;
                     break;
 
                 default:
-                    // fragmentClass = MainActivity.class;
+                    activityClass = MainActivity.class;
                     break;
 
             }
@@ -233,15 +235,17 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_trust:
-                fragmentClass = TrustFragment.class;
+                // fragmentClass = TrustFragment.class;
+                activityClass = TrustActivity.class;
                 break;
 
             case R.id.nav_faq:
-                fragmentClass = FAQFragment.class;
+                // fragmentClass = FAQFragment.class;
+                activityClass = FAQActivity.class;
                 break;
 
             default:
-                fragmentClass = MainActivity.class;
+                activityClass = MainActivity.class;
                 break;
 
         }

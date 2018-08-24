@@ -32,7 +32,7 @@ public class CurrencyFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    TextView sun;
+    TextView elec;
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,6 +63,10 @@ public class CurrencyFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View v = inflater.inflate(R.layout.fragment_currency, container, false);
+
+       elec = (TextView) v.findViewById(R.id.elec);
+       elec.setText(((SunActivity)SunActivity.context).getSun() + "KW");
+
        return v;
     }
 
