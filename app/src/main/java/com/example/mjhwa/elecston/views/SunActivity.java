@@ -24,9 +24,9 @@ public class SunActivity extends AppCompatActivity implements
         MyFragment.OnFragmentInteractionListener {
 
     // 액티비티 간 데이터 공유
-    public int sun = 119;
-    public int sum = 0;
-    public int mileage = 0;
+    public int sun;
+    public int sum;
+    public int mileage;
     public static Context context;
 
     @Override
@@ -39,7 +39,6 @@ public class SunActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sun);
 
-
         ImageView imageView = (ImageView)findViewById(R.id.sun_image);
         imageView.setImageResource(R.drawable.powerpoles);
 
@@ -50,6 +49,9 @@ public class SunActivity extends AppCompatActivity implements
         TabLayout mTab = (TabLayout)findViewById(R.id.sun_tabs);
         mTab.setupWithViewPager(mViewPager);
 
+        sun = 119;
+        sum = 0;
+        mileage = 0;
         context = this;
 
         Toast.makeText(this, "태양광 보유량은 " + ((SunActivity)SunActivity.context).getSun() + " KW입니다.", Toast.LENGTH_LONG).show();

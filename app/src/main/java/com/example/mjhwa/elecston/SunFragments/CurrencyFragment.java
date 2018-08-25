@@ -65,7 +65,8 @@ public class CurrencyFragment extends Fragment {
        View v = inflater.inflate(R.layout.fragment_currency, container, false);
 
        elec = (TextView) v.findViewById(R.id.elec);
-       elec.setText(((SunActivity)SunActivity.context).getSun() + "KW");
+       int val = ((SunActivity)SunActivity.context).sun;
+       elec.setText(val + " KW");
 
        return v;
     }
